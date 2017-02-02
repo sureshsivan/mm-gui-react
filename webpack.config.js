@@ -1,13 +1,9 @@
-module.exports = {
-    entry: './src/client/index.js',
-    output: {
-        path: './dist',
-        filename: 'index_bundle.js'
-    },
-    module: {
-        loaders: [
-            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-            { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ }
-        ]
-    }
-}
+// if((process.env.ENV === 'prod') ||
+//     (process.env.ENV === 'production') ||
+//     (process.env.BUILD_ENV === 'prod') ||
+//     (process.env.BUILD_ENV === 'production')){
+//     module.exports = require('./config/webpack.prod.js');
+// } else {
+//     module.exports = require('./config/webpack.dev.js');
+// }
+module.exports = require('./config/webpack.dev.js');

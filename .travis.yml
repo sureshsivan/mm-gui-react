@@ -1,0 +1,58 @@
+language: node_js
+
+node_js:
+  - "4.5"
+
+env: |
+  - APP_FULL_NAME="Money_Manager_React_UI"
+    APP_DESCRIPTION="Money_Manager_GUI_POWERED_BY_React"
+    APP_ID_UPPERCASE="MMREACT"
+    APP_ID_LOWERCASE="mmreact"
+    ROOT_DOMAIN_NAME="sivashub.com"
+    DEPLOY_ENV="dev"
+    AWS_DEFAULT_REGION="us-east-1"
+    AWS_REGION="us-east-1"
+    CXX="g++-4.8"
+
+# - this one is needed if we have to use any natine compilation for node modules -w arn by travis build
+#
+# addons:
+#   apt:
+#     sources:
+#       - ubuntu-toolchain-r-test
+#     packages:
+#       - g++-4.
+#
+#
+#services:
+#  - docker
+
+script:
+  yarn build
+
+before_deploy:
+   pip install --user awscli
+
+deploy:
+  - provider: script
+    script: npm run prepdeploy
+    skip_cleanup: true
+  - provider: script
+    script: npm run deploy
+    skip_cleanup: true
+
+
+
+#after_script:
+#    publish to docker public repo
+
+# after deploying into s3 - build and publish docker image
+#after_deploy:
+#  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+#      docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+#      docker push USER/REPO;
+#    fi
+
+notifications:
+    email:
+        on_failure: always
