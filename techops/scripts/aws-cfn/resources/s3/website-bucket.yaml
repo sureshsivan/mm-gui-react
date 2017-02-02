@@ -1,0 +1,12 @@
+Type: AWS::S3::Bucket
+Properties:
+  BucketName:
+    Fn::Join:
+    - "."
+    - - Ref: ParamDeployEnv
+      - Ref: ParamAppIdentifierSmall
+      - Ref: ParamRootDomain
+  AccessControl: PublicRead
+  WebsiteConfiguration:
+    IndexDocument: index.html
+    ErrorDocument: site-error.html

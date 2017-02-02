@@ -1,0 +1,42 @@
+Type: AWS::Route53::RecordSetGroup
+Condition:  IsProdEnv
+Properties:
+  HostedZoneName:
+    Fn::Join:
+      - ''
+      - - Ref: ParamRootDomain
+        - "."
+  RecordSets:
+    - Name:
+        Fn::Join:
+        - "."
+        - - Ref: ParamAppIdentifierSmall
+          - Ref: ParamRootDomain
+      Type: A
+      AliasTarget:
+        HostedZoneId:
+          Fn::FindInMap:
+          - HostedZones
+          - CloudFront
+          - ZoneId
+        DNSName:
+          Fn::GetAtt:
+          - ResourceCloudFrontDistribution
+          - DomainName
+    - Name:
+        Fn::Join:
+        - "."
+        - - www
+          - Ref: ParamAppIdentifierSmall
+          - Ref: ParamRootDomain
+      Type: A
+      AliasTarget:
+        HostedZoneId:
+          Fn::FindInMap:
+          - HostedZones
+          - CloudFront
+          - ZoneId
+        DNSName:
+          Fn::GetAtt:
+          - ResourceCloudFrontDistribution
+          - DomainName

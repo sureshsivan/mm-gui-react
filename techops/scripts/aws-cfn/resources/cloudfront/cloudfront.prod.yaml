@@ -1,0 +1,66 @@
+Type: AWS::CloudFront::Distribution
+Condition:  IsProdEnv
+DependsOn:
+- ResourceWWWRedirectS3Bucket
+Properties:
+  DistributionConfig:
+    Comment: Cloudfront Distribution pointing to S3 bucket
+    Origins:
+      - DomainName:
+          Fn::Join:
+          - "."
+          - - Fn::Join:
+              - "."
+              - - Ref: ParamDeployEnv
+                - Ref: ParamAppIdentifierSmall
+                - Ref: ParamRootDomain
+            - Fn::FindInMap:
+              - RegionMap
+              - Ref: AWS::Region
+              - websiteendpoint
+        Id:
+          Fn::Join:
+          - "-"
+          - - custom
+            - cloudfront
+            - dist
+            - origin
+            - id
+            - Fn::Join:
+              - "."
+              - - Ref: ParamDeployEnv
+                - Ref: ParamAppIdentifierSmall
+                - Ref: ParamRootDomain
+        CustomOriginConfig:
+          HTTPPort: '80'
+          HTTPSPort: '443'
+          OriginProtocolPolicy: http-only
+    Enabled: 'true'
+    DefaultRootObject: index.html
+    Aliases:
+    - Fn::Join:
+      - "."
+      - - Ref: ParamDeployEnv
+        - Ref: ParamAppIdentifierSmall
+        - Ref: ParamRootDomain
+    DefaultCacheBehavior:
+      AllowedMethods:
+      - GET
+      - HEAD
+      Compress: 'true'
+      TargetOriginId:
+        Fn::Join:
+        - "-"
+        - - custom
+          - cloudfront
+          - dist
+          - origin
+          - id
+          - Fn::Join:
+            - "."
+            - - Ref: ParamDeployEnv
+              - Ref: ParamAppIdentifierSmall
+              - Ref: ParamRootDomain
+      ForwardedValues:
+        QueryString: 'true'
+      ViewerProtocolPolicy: allow-all

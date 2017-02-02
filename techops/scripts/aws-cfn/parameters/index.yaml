@@ -1,0 +1,27 @@
+ParamAppFullName:
+  Type: String
+  Description: Full Name of the App - Cannot have spaces
+ParamAppDescription:
+  Type: String
+  Description: Description of the app - Cannot have spaces
+  Default: Serverless API.
+ParamAppIdentifierCaps:
+  Type: String
+  Description: Short Name of the app - No Spaces - Uppercase
+ParamAppIdentifierSmall:
+  Type: String
+  Description: Short Name of the app - No Spaces - Lowercase
+ParamRootDomain:
+  Type: String
+  Description: Root Domain under which APIs will b deployed
+  AllowedPattern: "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)"
+  ConstraintDescription: must be a valid DNS zone name.
+ParamDeployEnv:
+  Type: String
+  Description: Deploy Environment - Api gateway stage will be created accordingly
+  AllowedValues:
+    - dev
+    - int
+    - prod
+  ConstraintDescription: Must be one of the valid environments
+  Default: dev

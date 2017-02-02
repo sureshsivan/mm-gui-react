@@ -1,0 +1,20 @@
+Type: AWS::S3::Bucket
+DependsOn:
+- ResourceWebsiteS3Bucket
+Properties:
+  BucketName:
+    Fn::Join:
+    - "."
+    - - www
+      - Ref: ParamDeployEnv
+      - Ref: ParamAppIdentifierSmall
+      - Ref: ParamRootDomain
+  AccessControl: BucketOwnerFullControl
+  WebsiteConfiguration:
+    RedirectAllRequestsTo:
+      HostName:
+        Fn::Join:
+        - "."
+        - - Ref: ParamDeployEnv
+          - Ref: ParamAppIdentifierSmall
+          - Ref: ParamRootDomain
