@@ -35,12 +35,16 @@
     "moneymanager"
   ],
   "dependencies": {
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "2.28.0",
+    "postcss-loader": "^1.2.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "rimraf": "2.5.4",
     "semantic-ui-css": "^2.2.4",
     "semantic-ui-react": "^0.64.7",
+    "style-loader": "^0.13.1",
     "webpack": "2.2.1",
     "webpack-dev-server": "1.16.3",
     "webpack-merge": "2.6.1"
