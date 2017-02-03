@@ -1,8 +1,6 @@
 
 import '../../public/css/styles.css';
-// import 'semantic-ui-css/semantic.css';
-// import 'semantic-ui-css/themes/default/assets/fonts/icons.*';
-// import 'semantic-ui-css/themes/default/assets/images/*.*';
+import 'semantic-ui-css/semantic.css';
 
 
 import React from 'react';
