@@ -1,6 +1,7 @@
 
 import '../../public/css/styles.css';
 import 'semantic-ui-css/semantic.css';
+// import 'semantic-ui-css/semantic.js';
 
 
 import React from 'react';
