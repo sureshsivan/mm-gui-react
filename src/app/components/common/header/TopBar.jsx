@@ -37,7 +37,7 @@ export default class TopBar extends Component {
     }
     buildAppMenus(){
         return APP_MENUS.map(function(eachMenu, i){
-            return <Menu.Item icon={true} name={eachMenu.key} key={eachMenu.key} active={i === 0} content={eachMenu.label}/>
+            return <Menu.Item icon={eachMenu.icon} name={eachMenu.key} key={eachMenu.key} active={i === 0} content={""}/>
         });
     }
     render() {
