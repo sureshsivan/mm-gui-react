@@ -1,0 +1,13 @@
+.search-field > input:focus {
+    width: 400px;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.search-field > input{
+    width: 300px;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    transition: all .5s ease;
+}

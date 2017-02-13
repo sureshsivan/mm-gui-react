@@ -12,7 +12,7 @@ export default class AppTitle extends Component {
     render() {
         return (
             <Menu.Item header>
-                <img src="http://placehold.it/30x30"/>
+                <img src="http://lorempixel.com/30/30/"/>
                 &nbsp;&nbsp;
                 {APP_TITLE}
             </Menu.Item>

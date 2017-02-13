@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Menu, Segment, Dropdown } from 'semantic-ui-react'
 import AppTitle from './AppTitle'
-import SearchBar from './SearchBar'
+import SearchBar from '../search-bar/SearchField'
 import UserMenus from './UserMenus'
 
 const APP_MENUS = [{
