@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Dropdown } from 'semantic-ui-react'
 
-const APP_TITLE = 'My REACT App';
-
-export default class UserMenus extends Component {
+export default class AppSettingsMenu extends Component {
 
     constructor(props){
         super(props)

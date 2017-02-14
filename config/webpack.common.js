@@ -3,7 +3,7 @@ var helpers = require('./helpers');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const VENDOR_LIBS_JS = ['react', 'react-dom', 'semantic-ui-react'];
+const VENDOR_LIBS_JS = ['react', 'react-dom', 'redux', 'react-redux', 'semantic-ui-react'];
 const VENDOR_LIBS_CSS = ['semantic-ui-css/semantic.css'];
 
 const vendorCssExtractPlugin = new ExtractTextPlugin('vendor.[hash].css');
@@ -46,7 +46,7 @@ module.exports = {
             minify: false
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['vendor']
+            name: ['vendor', 'manifest']
         }),
         vendorCssExtractPlugin,
         appCssExtractPlugin
