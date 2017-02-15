@@ -2,12 +2,22 @@ import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
+import { bindActionCreators } from 'redux';
+import activateMenu from '../../../actions/index';
+
 class AppMenuList extends Component {
 
     renderAppMenus(){
-        return this.props.menus.map(eachMenu => {
+        return this.props.menus.map(menu => {
             return (
-                <Menu.Item icon={eachMenu.iconCls} name={eachMenu.key} key={eachMenu.key} content={eachMenu.name}/>
+                <Menu.Item
+                    icon={menu.iconCls}
+                    name={menu.key}
+                    key={menu.key}
+                    content={menu.name}
+                    active={menu.key === this.props.activeMenu.key}
+                    onClick={()=>{this.props.activateMenu(menu)}}/>
+
             )
         });
     }
@@ -22,10 +32,15 @@ class AppMenuList extends Component {
 }
 
 
-function mapStateToProps(state){
+const mapStateToProps = function (state){
     return {
-        menus: state.menus
+        menus: state.menus,
+        activeMenu: state.activeMenu
     };
 }
 
-export default connect(mapStateToProps)(AppMenuList);
+const mapDispatchToProps = function(dispatch){
+    return bindActionCreators({activateMenu: activateMenu}, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppMenuList);
