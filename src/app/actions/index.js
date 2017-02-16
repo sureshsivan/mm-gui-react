@@ -1,11 +1,10 @@
 
 import ActionTypes from '../constants/ActionTypes';
 
-const activateMenu = function(menu){
-    console.log('Activating Menu...', menu);
+const activateMenu = function(menuKey){
     return {
         type: ActionTypes.MENU_CLICKED,
-        payload: menu
+        payload: menuKey
     };
 };
 

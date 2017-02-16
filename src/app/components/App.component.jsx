@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Button, Header, Icon, Modal } from 'semantic-ui-react'
-import TopBar from './header/semantic/TopBar'
+import TopBar from './header/header-bar/HeaderBar'
 import reducers from '../reducers';
 
 import { createStore } from 'redux';

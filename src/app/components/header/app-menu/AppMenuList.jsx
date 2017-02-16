@@ -14,9 +14,9 @@ class AppMenuList extends Component {
                     icon={menu.iconCls}
                     name={menu.key}
                     key={menu.key}
-                    content={menu.name}
-                    active={menu.key === this.props.activeMenu.key}
-                    onClick={()=>{this.props.activateMenu(menu)}}/>
+                    content={menu.label}
+                    active={menu.key === this.props.activeMenu}
+                    onClick={()=>{this.props.activateMenu(menu.key)}}/>
 
             )
         });
