@@ -3,7 +3,7 @@ import { Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 import { bindActionCreators } from 'redux';
-import activateMenu from '../../../actions/index';
+import Actions from '../../../actions/index';
 
 class AppMenuList extends Component {
 
@@ -40,7 +40,7 @@ const mapStateToProps = function (state){
 }
 
 const mapDispatchToProps = function(dispatch){
-    return bindActionCreators({activateMenu: activateMenu}, dispatch);
+    return bindActionCreators({activateMenu: Actions.activateMenu}, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppMenuList);

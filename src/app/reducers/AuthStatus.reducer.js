@@ -1,4 +1,4 @@
-
+import ActionTypes from '../constants/ActionTypes';
 
 const authStatusReducer = function(state = false, action){
     console.log('authStatusReducer', 'reducer called', arguments);
@@ -10,3 +10,5 @@ const authStatusReducer = function(state = false, action){
     }
     return state;
 };
+
+export default authStatusReducer;

@@ -1,5 +1,5 @@
-import AppConfig from '../utils/mocks/AppConfigs'
-import ActionTypes from '../constants/ActionTypes'
+import AppConfig from '../utils/mocks/AppConfigs';
+import ActionTypes from '../constants/ActionTypes';
 
 const appMenusReducer = function(state = AppConfig.GUEST_MENU, action){
     console.log('appMenusReducer', 'reducer called', arguments);

@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux'
 import AppMenusReducer from './AppMenus.reducer'
-import ActivateMenu from './ActiveMenu.reducer'
+import ActiveMenuReducer from './ActiveMenu.reducer'
+import AuthStatusReducer from './AuthStatus.reducer'
 
 
 const rootReducer = combineReducers({
     menus: AppMenusReducer,
-    activeMenu: ActivateMenu
+    activeMenu: ActiveMenuReducer,
+    authStatus: AuthStatusReducer
 });
 
 export default rootReducer;
