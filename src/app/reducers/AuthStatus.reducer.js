@@ -7,6 +7,8 @@ const authStatusReducer = function(state = false, action){
             return true;
         case ActionTypes.LOGIN_FAILURE:
             return false;
+        case ActionTypes.LOGOUT_COMPLETE:
+            return false;
     }
     return state;
 };

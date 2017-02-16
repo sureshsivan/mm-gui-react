@@ -25,7 +25,7 @@ const mockLoginFailure = function(){
 
 const mockLogout = function(){
     return {
-        type: ActionTypes.LOGOUT,
+        type: ActionTypes.LOGOUT_COMPLETE,
         payload: null
     };
 };

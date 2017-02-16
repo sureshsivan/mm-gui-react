@@ -7,7 +7,9 @@ const appMenusReducer = function(state = AppConfig.GUEST_MENU, action){
         case ActionTypes.LOGIN_SUCCESS:
             return AppConfig.USER_MENU;
         case ActionTypes.LOGIN_FAILURE:
+        case ActionTypes.LOGOUT_COMPLETE:
             return AppConfig.GUEST_MENU;
+
     }
     return state;
 }

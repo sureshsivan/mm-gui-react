@@ -18,6 +18,12 @@ class AppSettingsMenu extends Component {
                 <Dropdown.Menu>
                     <Dropdown.Item onClick={()=>{this.props.mockLoginSuccess()}}>Login</Dropdown.Item>
                     <Dropdown.Item onClick={()=>{this.props.mockLogout()}}>Logout</Dropdown.Item>
+                    <Dropdown.Item onClick={()=>{
+                        const lock = new Auth0Lock('z4180AejhL4GIzjFHy1wGNEuSdfiN6fc', 'sivas.auth0.com');
+                        lock.show((err, profile, token) => {
+                            console.log("AUTH_0 :: ", arguments);
+                        });
+                    }}>Login Initiate</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
         )
