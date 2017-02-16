@@ -14,10 +14,11 @@ class AppSettingsMenu extends Component {
 
     render() {
         return (
-            <Dropdown item icon='wrench' simple>
+            <Dropdown item pointing text='Settings'>
                 <Dropdown.Menu>
                     <Dropdown.Item onClick={()=>{this.props.mockLoginSuccess()}}>Login</Dropdown.Item>
-                    <Dropdown.Item onClick={()=>{this.props.mockLogout()}}>Logout</Dropdown.Item>
+                    <Dropdown.Item  onClick={()=>{this.props.mockLogout()}}>Logout</Dropdown.Item>
+                    <Dropdown.Divider/>
                     <Dropdown.Item onClick={()=>{
                         const lock = new Auth0Lock('z4180AejhL4GIzjFHy1wGNEuSdfiN6fc', 'sivas.auth0.com');
                         lock.show((err, profile, token) => {
